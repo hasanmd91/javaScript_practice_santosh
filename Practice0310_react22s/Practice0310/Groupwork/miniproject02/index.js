@@ -8,22 +8,22 @@ class FetchWrapper {
   }
 
   put(endpoint, body) {
-    return this._send('put', endpoint, body);
+    return this._send("put", endpoint, body);
   }
 
   post(endpoint, body) {
-    return this._send('post', endpoint, body);
+    return this._send("post", endpoint, body);
   }
 
   delete(endpoint, body) {
-    return this._send('delete', endpoint, body);
+    return this._send("delete", endpoint, body);
   }
 
   _send(method, endpoint, body) {
     return fetch(this.baseURL + endpoint, {
       method,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
     }).then((response) => response.json());
@@ -53,3 +53,19 @@ fetch/FetchWrapper related code after you get it to work the first time. */
 // Create a function called getConversionRates and add a console.log(“New currency selected”) inside of it
 // Whenever the user choose a new value for the base currency, you need to call the getConversionRates function.
 // Test it out in the browser tab.
+
+const baseCurrency = document.querySelector("#base-currency");
+const targetCurrency = document.querySelector("#target-currency");
+const conversionResult = document.querySelector("#conversion-result");
+let url = "https://v6.exchangerate-api.com/v6/1559ac9452e5974e2a1aee20/latest/";
+
+baseCurrency.addEventListener("change", function getConversionRates() {
+  let fetchobj = new FetchWrapper(url);
+  let value = baseCurrency.options[baseCurrency.selectedIndex].value;
+  let targetValue = targetCurrency.options[targetCurrency.selectedIndex].value;
+  fetchobj.get(value).then((data) => {
+    console.log(data);
+    console.log(targetValue);
+    conversionResult.innerHTML = `${data.conversion_rates.targetValue}`;
+  });
+});
