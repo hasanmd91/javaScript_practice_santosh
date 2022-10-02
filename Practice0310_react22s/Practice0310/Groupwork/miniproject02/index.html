@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page</title>
+    <link rel="stylesheet" href="index.css" type="text/css">
+</head>
+<body>
+    <nav id="navbar">
+      <a href="" class="nav-brand">Currencies</a>
+      <ul>
+        <li class="nav-item"><a href="about.html">About us</a></li>
+        <li><a href="" class="nav-item btn btn-default">Register</a></li>
+      </ul>
+    </nav>
+
+    <div class="container" id="main">
+        <p>Select the base currency and the target currency and we'll show you the conversion rate.</p>
+        <div class="grid">
+            <div>
+                <label for="base-currency">Base currency:</label>
+                <select id="base-currency">
+                    <option value="USD">United States Dollar ($)</option>
+                    <option value="EUR">Euro (€)</option>
+                    <option value="CAD">Canadian Dollar (C$)</option>
+                    <option value="INR">Indian Rupee (₹)</option>
+                </select>
+            </div>
+            <div>
+                <label for="target-currency">Target currency:</label>
+                <select id="target-currency">
+                    <option value="USD">United States Dollar ($)</option>
+                    <option value="EUR">Euro (€)</option>
+                    <option value="CAD">Canadian Dollar (C$)</option>
+                    <option value="INR">Indian Rupee (₹)</option>
+                </select>
+            </div>
+        </div>
+        <div class="result-grid">
+            <p> 1 </p>
+            <p> = </p>
+            <p id="conversion-result">1</p>
+        </div>
+
+    </div>
+
+    <footer id="footer-wrapper">
+        <a href="about.html" target="_blank">About us</a>
+        <a href="contact.html" target="_blank">Contact us</a>
+    </footer>
+</body>
+<script type="text/javascript" src="index.js"></script>
+</html>
