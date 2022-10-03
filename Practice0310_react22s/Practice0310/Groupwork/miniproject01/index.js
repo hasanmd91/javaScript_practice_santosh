@@ -1,43 +1,45 @@
 /* Sample usage do not modify */
 class FetchWrapper {
-  constructor(baseURL) {
-    this.baseURL = baseURL;
-  }
+    constructor(baseURL) {
+        this.baseURL = baseURL;
+    }
 
-  get(endpoint) {
-    return fetch(this.baseURL + endpoint).then((response) => response.json());
-  }
+    get(endpoint) {
+        return fetch(this.baseURL + endpoint)
+            .then(response => response.json());
+    }
 
-  put(endpoint, body) {
-    return this._send("put", endpoint, body);
-  }
+    put(endpoint, body) {
+        return this._send("put", endpoint, body);
+    }
 
-  post(endpoint, body) {
-    return this._send("post", endpoint, body);
-  }
+    post(endpoint, body) {
+        return this._send("post", endpoint, body);
+    }
 
-  delete(endpoint, body) {
-    return this._send("delete", endpoint, body);
-  }
+    delete(endpoint, body) {
+        return this._send("delete", endpoint, body);
+    }
 
-  _send(method, endpoint, body) {
-    return fetch(this.baseURL + endpoint, {
-      method,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    }).then((response) => response.json());
-  }
+    _send(method, endpoint, body) {
+        return fetch(this.baseURL + endpoint, {
+            method,
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+        }).then(response => response.json());
+    }
 }
 
-const startLoader = (element) => {
-  element.innerHTML = `<div class="loading-spinner"></div>`;
-};
+const startLoader = element => {
+    element.innerHTML = `<div class="loading-spinner"></div>`;
+}
 
 const stopLoader = (element, value) => {
-  element.textContent = value;
-};
+    element.textContent = value;
+}
+
 
 /* In this mini-project, you will build a page that uses the GitHub API to list the repositories of a GitHub user.
 This project does not require you to log in and authenticate with the GitHub API.
