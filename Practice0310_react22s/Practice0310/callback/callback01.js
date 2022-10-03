@@ -17,7 +17,9 @@ const welcomeUser = (name, callback) => {
  * @param {string} name
  */
 const sayHello = (name) => {
-  console.log("Done");
+  welcomeUser(name, () => {
+    console.log("Done");
+  });
 };
 
-console.log(welcomeUser("james ", sayHello));
+sayHello("James");

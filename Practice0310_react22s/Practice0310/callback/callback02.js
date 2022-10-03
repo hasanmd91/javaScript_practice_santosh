@@ -10,21 +10,21 @@
 
 const sumGrades = (grades, callback) => {
   setTimeout(() => {
-      const sum = grades.reduce((total, current) => total + current, 0);
-      if (callback) {
-          callback(sum); // call the success callback with the sum
-      }
+    const sum = grades.reduce((total, current) => total + current, 0);
+    if (callback) {
+      callback(sum); // call the success callback with the sum
+    }
   }, 1000);
-}
+};
 
 /**
  * @param {number[]} grades
  */
- const calculateSum = (grades) => {
-  sumGrades(grades);
-  console.log("The sum is: X");
-
-}
+const calculateSum = (grades) => {
+  sumGrades(grades, (sum) => {
+    console.log(`The sum is: ${sum}`);
+  });
+};
 
 // Sample usage - do not modify
 calculateSum([18, 10]);
